@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
+import "./App.css"
+import {connect, sendMsg } from "./api";
 
-function app() {
-  return (
-    <div className="app">
-      <h1>Chat App FrontEnd</h1>
-    </div>
-  )
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    connect();
+  }
+  send = () => {
+    console.log("hello");
+    sendMsg("hello")
+  }
+  render(){
+    return (
+      <div className = "App">
+        <button onClick={this.send}>Hit</button>
+      </div>
+    )
+  }
 }
+
 
 export default App;
 
